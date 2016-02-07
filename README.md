@@ -1,6 +1,6 @@
 # Chess
 
-This repository contains a Visual Studio project that implements a basic Chess game in C#. The game
+This repository contains a Visual Studio 2015 project that implements a basic Chess game in C#. The game
 provides some nice features, such as different skins, allowed movements highlight, a stopwatch for
 each player, and a movements log. It also supports pawn promotion and displays warnings when the king
 is in check. The application implements various design patterns, such as Memento, Singleton, and Iterator.

@@ -91,29 +91,24 @@ namespace Chess
 
             if (this.getColor() == Color.White)
             {
-
                 if (whitePiece != null)
                 {
-
                     return false;
                 }
                 else if (blackPiece != null)
                 {
-
                     this.allowedMovements.insert(currentPos);
                     return false;
                 }
             }
             if (this.getColor() == Color.Black)
             {
-
                 if (blackPiece != null)
                 {
                     return false;
                 }
                 else if (whitePiece != null)
                 {
-
                     this.allowedMovements.insert(currentPos);
                     return false;
                 }
@@ -136,7 +131,6 @@ namespace Chess
                     i >= 0 && j >= 0 && i < Board.NUM_ROWS && j < Board.NUM_ROWS;
                     i += dirX, j += dirY)
             {
-
                 if (!checkSquare(new Position(i, j)))
                 {
                     break;

@@ -13,7 +13,6 @@ namespace Chess
         {
             if (base.getColor() == Color.Black)
             {
-
                 base.setImage(new Bitmap(Board.getInstance().getPath() + "//BlackBishop.gif"));
             }
             else {

@@ -7,6 +7,4 @@ is in check. The application implements various design patterns, such as Memento
 
 In order to execute the Chess game, you can open the project using Visual Studio and start it
 within the IDE. You can also run the application by means of the executable file that is located
-in the "bin" folder.
-
-Some screenshots of the Chess game are provided in the "screenshots" folder.
+in the "bin" folder. Some screenshots of the Chess game are provided in the "screenshots" folder.

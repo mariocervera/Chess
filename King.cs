@@ -11,7 +11,6 @@ namespace Chess
     {
         public King(Position p, Color c) : base(p, c)
         {
-
             if (base.getColor() == Color.Black)
             {
                 base.setImage(new Bitmap(Board.getInstance().getPath() + "//BlackKing.gif"));

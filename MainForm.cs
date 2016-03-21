@@ -1122,7 +1122,6 @@ namespace Chess
 
             if (myProgressBar.Value == myProgressBar.Maximum)
             {
-
                 if (timeA < timeB)
                 {
 
@@ -1221,7 +1220,6 @@ namespace Chess
 
         private void fillVectorsPictureBox()
         {
-
             pictureBoxWhite.insert(pictureBox2);
             pictureBoxWhite.insert(pictureBox1);
             pictureBoxWhite.insert(pictureBox4);
@@ -1259,7 +1257,6 @@ namespace Chess
 
         public void emptyPicturesBox()
         {
-
             Iterator it = pictureBoxWhite.getIterator();
             PictureBox p;
 
@@ -1280,7 +1277,6 @@ namespace Chess
 
         public void paintDeletedWhitePieces()
         {
-
             int i = 0;
 
             //Clear images before painting
@@ -1303,7 +1299,6 @@ namespace Chess
 
         public void paintDeletedBlackPieces()
         {
-
             int i = 0;
 
             //Clear images before painting
@@ -1318,7 +1313,6 @@ namespace Chess
 
             foreach (Image im in myBlackImages.Images)
             {
-
                 (pictureBoxBlack.getElement(i) as PictureBox).Image = im;
                 i++;
             }
@@ -1328,7 +1322,6 @@ namespace Chess
 
         public void deleteLastImage(ImageList images)
         {
-
             if (images.Images.Count > 0)
             {
 

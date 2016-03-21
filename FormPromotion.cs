@@ -160,6 +160,5 @@ namespace Chess
                 e.Cancel = true;
             }
         }
-
     }
 }

@@ -4,15 +4,13 @@ using System.Drawing;
 
 namespace Chess
 {
-
-    /**
+    /*
     * This class represents the pieces of the chess board.
     *
-    * Subclasses: King, Queen, Rook, Knight, Bishop, and Pawn
+    * Subclasses: King, Queen, Rook, Knight, Bishop, and Pawn.
     */
     public abstract class Piece
     {
-
         protected Position position;
         protected Color color;
         protected Image image;
@@ -64,11 +62,10 @@ namespace Chess
         public abstract void updateAllowedMovements();
 
         /*
-         * Checks if a given position is valid as a next move.
+         * Checks whether a given position is valid as a next move.
          */
         public bool isvalidMove(Position newPosition)
         {
-
             Iterator iterator = allowedMovements.getIterator();
 
             while (iterator.MoveNext())
@@ -89,7 +86,6 @@ namespace Chess
          */
         protected bool checkSquare(Position currentPos)
         {
-
             Piece whitePiece = Board.getInstance().consultPiece(currentPos, true);
             Piece blackPiece = Board.getInstance().consultPiece(currentPos, false);
 
@@ -133,7 +129,6 @@ namespace Chess
          */
         protected void calculateLine(int dirX, int dirY)
         {
-
             int row = this.getPosition().getRow();
             int column = this.getPosition().getColumn();
 
@@ -155,13 +150,11 @@ namespace Chess
          */
         protected void fillSquare(int x, int y)
         {
-
             int row = this.getPosition().getRow() + x;
             int column = this.getPosition().getColumn() + y;
 
             if (row >= 0 && row < Board.NUM_ROWS && column >= 0 && column < Board.NUM_ROWS)
             {
-
                 checkSquare(new Position(row, column));
             }
         }

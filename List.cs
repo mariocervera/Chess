@@ -2,109 +2,113 @@ using System;
 using System.Collections;
 using System.Drawing;
 
-namespace Chess {
-	
-	public class List {
+namespace Chess
+{
+    /*
+    * Iterator design pattern
+    */
+    public class List
+    {
+        private ArrayList list;
 
-		private ArrayList list;
+        public List()
+        {
+            list = new ArrayList();
+        }
 
-		public List() {
-
-			list = new ArrayList();
-		}
-
-		/*
+        /*
          * This constructor is used in the clone method
          */
-		public List(ArrayList l) {
+        public List(ArrayList l)
+        {
+            list = new ArrayList();
 
-			list = new ArrayList();
-
-            foreach (Piece p in l) {
-
-				Position pos = new Position(p.getPosition().getRow(),p.getPosition().getColumn());
-				Color color = p.getColor();
-				Image image = p.getImage();
+            foreach (Piece p in l)
+            {
+                Position pos = new Position(p.getPosition().getRow(), p.getPosition().getColumn());
+                Color color = p.getColor();
+                Image image = p.getImage();
                 Piece piece = null;
 
-                if (p is Bishop) {
-
+                if (p is Bishop)
+                {
                     piece = new Bishop(pos, color);
                 }
-                else if (p is Knight) {
-
+                else if (p is Knight)
+                {
                     piece = new Knight(pos, color);
                 }
-                else if (p is Pawn) {
-
+                else if (p is Pawn)
+                {
                     piece = new Pawn(pos, color);
                 }
-                else if (p is Queen) {
-
+                else if (p is Queen)
+                {
                     piece = new Queen(pos, color);
                 }
-                else if (p is Rook) {
-
+                else if (p is Rook)
+                {
                     piece = new Rook(pos, color);
                 }
-                else if (p is King) {
-
+                else if (p is King)
+                {
                     piece = new King(pos, color);
                 }
 
                 list.Add(piece);
-			}
+            }
 
-		}
+        }
 
-		public Iterator getIterator() {
+        public Iterator getIterator()
+        {
+            return new Iterator(this);
+        }
 
-			return new Iterator(this);
-		}
+        public int count()
+        {
+            return list.Count;
+        }
 
-		public int count() {
+        public List clone()
+        {
+            return new List(this.list);
+        }
 
-			return list.Count;
-		}
+        public void clear()
+        {
+            list.Clear();
+        }
 
-		public List clone() {
+        public void insert(object obj)
+        {
+            list.Add(obj);
+        }
 
-			return new List(this.list);
-		}
-
-		public void clear() {
-
-			list.Clear();
-		}
-
-		public void insert(object obj) {
-
-			list.Add(obj);
-		}
-
-		public void remove(object obj) {
-
-			try {
-
-				list.Remove(obj);
-			}
-			catch(Exception e){
+        public void remove(object obj)
+        {
+            try
+            {
+                list.Remove(obj);
+            }
+            catch (Exception e)
+            {
                 throw e;
             }
-		}
+        }
 
-		public object getElement(int index) {
-
-			try {
-
-				object obj = list[index];
+        public object getElement(int index)
+        {
+            try
+            {
+                object obj = list[index];
 
                 return obj;
-			}
-			catch(ArgumentOutOfRangeException e){
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
                 throw e;
             }
-		}
-
-	}
+        }
+    }
 }

@@ -5,145 +5,147 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 
-namespace Chess {
+namespace Chess
+{
+    /*
+    * The Main Form of the application. It contains the chess board, a log, a stopwatch ...
+    */
+    public class MainForm : System.Windows.Forms.Form
+    {
+        private const int minWidth = 655;
+        private const int maxWidth = 870;
 
-	public class MainForm : System.Windows.Forms.Form {
+        private int timeA;
+        private int timeB;
 
-		private const int minWidth = 655;
-		private const int maxWidth = 870;
+        #region Components
 
-		private int timeA;
-		private int timeB;
+        private System.ComponentModel.IContainer components;
 
-		#region Componentes
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button hideButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button showButton;
+        private System.Windows.Forms.RichTextBox richTextBoxLog;
+        private System.Windows.Forms.Label labelInformation;
+        private System.Windows.Forms.ProgressBar myProgressBar;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItemNewGame;
+        private System.Windows.Forms.MenuItem menuItem15min;
+        private System.Windows.Forms.MenuItem menuItem30min;
+        private System.Windows.Forms.MenuItem menuItem45min;
+        private System.Windows.Forms.MenuItem menuItem1hour;
+        private System.Windows.Forms.MenuItem menuItem2hours;
+        private System.Windows.Forms.MenuItem menuItem4hours;
+        private System.Windows.Forms.MenuItem menuItemTime;
+        private System.Windows.Forms.MenuItem menuItemFinish;
+        private System.Windows.Forms.MenuItem menuItemUndo;
+        private System.Windows.Forms.ImageList myWhiteImages;
+        private System.Windows.Forms.ImageList myBlackImages;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.PictureBox pictureBox23;
+        private System.Windows.Forms.PictureBox pictureBox24;
+        private System.Windows.Forms.PictureBox pictureBox25;
+        private System.Windows.Forms.PictureBox pictureBox26;
+        private System.Windows.Forms.PictureBox pictureBox27;
+        private System.Windows.Forms.PictureBox pictureBox28;
+        private System.Windows.Forms.PictureBox pictureBox29;
+        private System.Windows.Forms.PictureBox pictureBox30;
+        private System.Windows.Forms.PictureBox pictureBox31;
+        private System.Windows.Forms.PictureBox pictureBox32;
 
-		private System.ComponentModel.IContainer components;
+        #endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Button hideButton;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button showButton;
-		private System.Windows.Forms.RichTextBox richTextBoxLog;
-		private System.Windows.Forms.Label labelInformation;
-		private System.Windows.Forms.ProgressBar myProgressBar;
-		private System.Windows.Forms.Timer timer;
-		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.MainMenu mainMenu1;
-		private System.Windows.Forms.MenuItem menuItem1;
-		private System.Windows.Forms.MenuItem menuItemNewGame;
-		private System.Windows.Forms.MenuItem menuItem15min;
-		private System.Windows.Forms.MenuItem menuItem30min;
-		private System.Windows.Forms.MenuItem menuItem45min;
-		private System.Windows.Forms.MenuItem menuItem1hour;
-		private System.Windows.Forms.MenuItem menuItem2hours;
-		private System.Windows.Forms.MenuItem menuItem4hours;
-		private System.Windows.Forms.MenuItem menuItemTime;
-		private System.Windows.Forms.MenuItem menuItemFinish;
-		private System.Windows.Forms.MenuItem menuItemUndo;
-		private System.Windows.Forms.ImageList myWhiteImages;
-		private System.Windows.Forms.ImageList myBlackImages;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.PictureBox pictureBox3;
-		private System.Windows.Forms.PictureBox pictureBox4;
-		private System.Windows.Forms.PictureBox pictureBox5;
-		private System.Windows.Forms.PictureBox pictureBox6;
-		private System.Windows.Forms.PictureBox pictureBox7;
-		private System.Windows.Forms.PictureBox pictureBox8;
-		private System.Windows.Forms.PictureBox pictureBox9;
-		private System.Windows.Forms.PictureBox pictureBox10;
-		private System.Windows.Forms.PictureBox pictureBox11;
-		private System.Windows.Forms.PictureBox pictureBox12;
-		private System.Windows.Forms.PictureBox pictureBox13;
-		private System.Windows.Forms.PictureBox pictureBox14;
-		private System.Windows.Forms.PictureBox pictureBox15;
-		private System.Windows.Forms.PictureBox pictureBox16;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.PictureBox pictureBox17;
-		private System.Windows.Forms.PictureBox pictureBox18;
-		private System.Windows.Forms.PictureBox pictureBox19;
-		private System.Windows.Forms.PictureBox pictureBox20;
-		private System.Windows.Forms.PictureBox pictureBox21;
-		private System.Windows.Forms.PictureBox pictureBox22;
-		private System.Windows.Forms.PictureBox pictureBox23;
-		private System.Windows.Forms.PictureBox pictureBox24;
-		private System.Windows.Forms.PictureBox pictureBox25;
-		private System.Windows.Forms.PictureBox pictureBox26;
-		private System.Windows.Forms.PictureBox pictureBox27;
-		private System.Windows.Forms.PictureBox pictureBox28;
-		private System.Windows.Forms.PictureBox pictureBox29;
-		private System.Windows.Forms.PictureBox pictureBox30;
-		private System.Windows.Forms.PictureBox pictureBox31;
-		private System.Windows.Forms.PictureBox pictureBox32;
+        private List pictureBoxWhite = new List();
+        private List pictureBoxBlack = new List();
 
-		#endregion 
+        public static Piece selectedPiece;
 
-		private List pictureBoxWhite = new List();
-		private List pictureBoxBlack = new List();
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem4;
 
-		public static Piece selectedPiece;
-
-		private System.Windows.Forms.MenuItem menuItem2;
-		private System.Windows.Forms.MenuItem menuItem3;
-		private System.Windows.Forms.MenuItem menuItem4;
-
-		public static string turn;
+        public static string turn;
 
 
-		public MainForm() {
-
-			InitializeComponent();
+        public MainForm()
+        {
+            InitializeComponent();
 
             Board.getInstance().setMainForm(this);
-			this.Controls.Add(Board.getInstance());
+            this.Controls.Add(Board.getInstance());
 
-			selectedPiece = null;
-			turn = "White";
+            selectedPiece = null;
+            turn = "White";
 
-			timeA = timeB = 900; // Default: 15 minutes (max) per player
+            timeA = timeB = 900; // Default: 15 minutes (max) per player
 
-			fillVectorsPictureBox();
+            fillVectorsPictureBox();
+        }
 
-		}
+        #region Dispose
+        //Limpiar los recursos que se estén utilizando.
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+        #endregion
 
-		#region Dispose
-		//Limpiar los recursos que se estén utilizando.
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if (components != null) 
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
-		#endregion
-
-		#region Código generado por el Diseñador de Windows Forms
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido del método con el editor de código.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Código generado por el Diseñador de Windows Forms
+        /// <summary>
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido del método con el editor de código.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
@@ -999,118 +1001,130 @@ namespace Chess {
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.ResumeLayout(false);
 
-		}
-		#endregion
+        }
+        #endregion
 
+        /*
+        * Entry point of the application
+        */
+        [STAThread]
+        static void Main()
+        {
+            Application.Run(new MainForm());
+        }
 
-		//Entry point of the application
-		[STAThread]
-		static void Main() {
-
-			Application.Run(new MainForm());
-		}
-
-
-		public ImageList getWhiteImages() {
-
+        public ImageList getWhiteImages()
+        {
             return myWhiteImages;
         }
 
-		public ImageList getBlackImages() {
-
+        public ImageList getBlackImages()
+        {
             return myBlackImages;
         }
 
-        public void setWhiteImages(ImageList i) {
-
+        public void setWhiteImages(ImageList i)
+        {
             myWhiteImages = i;
         }
 
-        public void setBlackImages(ImageList i) {
-
+        public void setBlackImages(ImageList i)
+        {
             myBlackImages = i;
         }
 
-        public List getPictureBoxWhite() {
-
+        public List getPictureBoxWhite()
+        {
             return pictureBoxWhite;
         }
 
-        public List getPictureBoxBlack() {
-
+        public List getPictureBoxBlack()
+        {
             return pictureBoxBlack;
         }
 
-		public void enableUndo() {
-
-            menuItemUndo.Enabled=true;
+        public void enableUndo()
+        {
+            menuItemUndo.Enabled = true;
         }
-		
-		public void showInLog(string s) {
 
-			richTextBoxLog.AppendText(s + "\n");
-		}
+        public void showInLog(string s)
+        {
+            richTextBoxLog.AppendText(s + "\n");
+        }
 
-		public void removeFromLog() {
+        public void removeFromLog()
+        {
+            richTextBoxLog.ReadOnly = false;
+            richTextBoxLog.Undo();
+            richTextBoxLog.ReadOnly = true;
+        }
 
-			richTextBoxLog.ReadOnly=false;
-			richTextBoxLog.Undo();
-			richTextBoxLog.ReadOnly=true;
-		}
+        public void showInformation(string s)
+        {
+            labelInformation.Text = s;
+        }
 
-		public void showInformation(string s) {
-
-			labelInformation.Text = s;
-		}
-
-
-		public void shiftTurn() {
-
-			if(turn == "White") {
-
+        /*
+        * Shift the turn: from white to black and vice versa.
+        */
+        public void shiftTurn()
+        {
+            if (turn == "White")
+            {
                 myProgressBar.Value = myProgressBar.Maximum - timeB;
-				turn = "Black";
-				showInformation("Turn: Black");
-			}
-			else { 
-				myProgressBar.Value = myProgressBar.Maximum - timeA;
-				turn = "White";
-				showInformation("Turn: White");
-			}
-		}
+                turn = "Black";
+                showInformation("Turn: Black");
+            }
+            else {
+                myProgressBar.Value = myProgressBar.Maximum - timeA;
+                turn = "White";
+                showInformation("Turn: White");
+            }
+        }
 
-		private void hideButton_Click(object sender, System.EventArgs e) {
+        /*
+        * This method hides the log.
+        */
+        private void hideButton_Click(object sender, System.EventArgs e)
+        {
+            this.MaximumSize = new Size(minWidth, this.Size.Height);
+            this.MinimumSize = this.MaximumSize;
+            this.Size = this.MinimumSize;
+            showButton.Visible = true;
+        }
 
-			this.MaximumSize=new Size(minWidth,this.Size.Height);
-			this.MinimumSize=this.MaximumSize;
-			this.Size=this.MinimumSize;
-			showButton.Visible=true;
-		}
-		
-		private void showButton_Click(object sender, System.EventArgs e) {
+        /*
+        * This method shows the log.
+        */
+        private void showButton_Click(object sender, System.EventArgs e)
+        {
+            this.MaximumSize = new Size(maxWidth, this.Size.Height);
+            this.MinimumSize = this.MaximumSize;
+            this.Size = this.MaximumSize;
+            showButton.Visible = false;
+        }
 
-			this.MaximumSize=new Size(maxWidth,this.Size.Height);
-			this.MinimumSize=this.MaximumSize;
-			this.Size=this.MaximumSize;
-            showButton.Visible=false;
-		}
+        /* 
+        * Evento Tick del timer
+        */
+        private void timer_Tick(object sender, System.EventArgs e)
+        {
+            myProgressBar.PerformStep();
 
-
-		//Evento Tick del timer
-		private void timer_Tick(object sender, System.EventArgs e) {
-
-			myProgressBar.PerformStep();
-
-            if (turn == "White") {
+            if (turn == "White")
+            {
                 timeA--;
             }
             else {
                 timeB--;
             }
 
-			if(myProgressBar.Value == myProgressBar.Maximum) {
+            if (myProgressBar.Value == myProgressBar.Maximum)
+            {
 
-                if (timeA < timeB) {
+                if (timeA < timeB)
+                {
 
                     showInformation("Game over. Winner: black");
                 }
@@ -1118,104 +1132,112 @@ namespace Chess {
                     showInformation("Game over. Winner: white");
                 }
 
-				finishGame();
-			}
-			
-		}
+                finishGame();
+            }
 
-		private void menuItemNewGame_Click(object sender, System.EventArgs e) {
+        }
 
+        private void menuItemNewGame_Click(object sender, System.EventArgs e)
+        {
             Board.getInstance().initializePieces();
             showInformation("Turn: white");
-			richTextBoxLog.Text = "";
-			myProgressBar.Value = myProgressBar.Minimum;
-			turn = "White";
-			timer.Enabled = true;
-			menuItemNewGame.Enabled = false;
-			menuItemTime.Enabled = false;
-			menuItemFinish.Enabled = true;
-			myProgressBar.Maximum = timeA;
-			emptyPicturesBox();
-			menuItem2.Enabled=false;
-		}
+            richTextBoxLog.Text = "";
+            myProgressBar.Value = myProgressBar.Minimum;
+            turn = "White";
+            timer.Enabled = true;
+            menuItemNewGame.Enabled = false;
+            menuItemTime.Enabled = false;
+            menuItemFinish.Enabled = true;
+            myProgressBar.Maximum = timeA;
+            emptyPicturesBox();
+            menuItem2.Enabled = false;
+        }
 
-		private void finishGame() {
-
-			timer.Enabled=false;
-			menuItemNewGame.Enabled=true;
-			menuItemTime.Enabled=true;
-			menuItemFinish.Enabled=false;
-			menuItemUndo.Enabled=false;
-			myProgressBar.Value=0;
-			timeA = timeB = 900;
+        private void finishGame()
+        {
+            timer.Enabled = false;
+            menuItemNewGame.Enabled = true;
+            menuItemTime.Enabled = true;
+            menuItemFinish.Enabled = false;
+            menuItemUndo.Enabled = false;
+            myProgressBar.Value = 0;
+            timeA = timeB = 900;
             Board.getInstance().clear();
 
-            if (selectedPiece != null) { //Delete painted squares
-			
+            if (selectedPiece != null)
+            { //Delete painted squares
+
                 Board.getInstance().deleteAllowedMovements(selectedPiece.getAllowedMovements());
                 Board.getInstance().deletePieceSquare(selectedPiece);
                 selectedPiece = null;
-			}
+            }
 
-			myWhiteImages.Images.Clear();
-			myBlackImages.Images.Clear();
-			menuItem2.Enabled=true;
-		}
+            myWhiteImages.Images.Clear();
+            myBlackImages.Images.Clear();
+            menuItem2.Enabled = true;
+        }
 
-		//Time setter methods
+        //Time setter methods
 
-		private void menuItem15min_Click(object sender, System.EventArgs e) {
+        private void menuItem15min_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 900;
         }
-		private void menuItem30min_Click(object sender, System.EventArgs e) {
+        private void menuItem30min_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 1800;
         }
-		private void menuItem45min_Click(object sender, System.EventArgs e) {
+        private void menuItem45min_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 2700;
         }
-		private void menuItem1hora_Click(object sender, System.EventArgs e) {
+        private void menuItem1hora_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 3600;
         }
-		private void menuItem2horas_Click(object sender, System.EventArgs e) {
+        private void menuItem2horas_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 7200;
         }
-		private void menuItem4horas_Click(object sender, System.EventArgs e) {
+        private void menuItem4horas_Click(object sender, System.EventArgs e)
+        {
             timeA = timeB = 14400;
         }
 
-		
-		private void menuItemFinish_Click(object sender, System.EventArgs e) { 
 
-			finishGame();
-			showInformation("Game over");
-		}
+        private void menuItemFinish_Click(object sender, System.EventArgs e)
+        {
+            finishGame();
+            showInformation("Game over");
+        }
 
-		private void menuItemUndo_Click(object sender, System.EventArgs e) {
-
+        private void menuItemUndo_Click(object sender, System.EventArgs e)
+        {
             Board.getInstance().restoreFromMementos(Caretaker.mementoBoard, Caretaker.mementoImages);
-			menuItemUndo.Enabled=false;
-		}
+            menuItemUndo.Enabled = false;
+        }
 
-		#region Metodos relacionados con las imagenes de las piezas eliminadas
+        #region Metodos relacionados con las imagenes de las piezas eliminadas
 
-		private void fillVectorsPictureBox() {
-			
-			pictureBoxWhite.insert(pictureBox2); 
-            pictureBoxWhite.insert(pictureBox1); 
-            pictureBoxWhite.insert(pictureBox4); 
-            pictureBoxWhite.insert(pictureBox3); 
-            pictureBoxWhite.insert(pictureBox6); 
-            pictureBoxWhite.insert(pictureBox5); 
-            pictureBoxWhite.insert(pictureBox8); 
-            pictureBoxWhite.insert(pictureBox7); 
+        private void fillVectorsPictureBox()
+        {
+
+            pictureBoxWhite.insert(pictureBox2);
+            pictureBoxWhite.insert(pictureBox1);
+            pictureBoxWhite.insert(pictureBox4);
+            pictureBoxWhite.insert(pictureBox3);
+            pictureBoxWhite.insert(pictureBox6);
+            pictureBoxWhite.insert(pictureBox5);
+            pictureBoxWhite.insert(pictureBox8);
+            pictureBoxWhite.insert(pictureBox7);
             pictureBoxWhite.insert(pictureBox10);
-            pictureBoxWhite.insert(pictureBox9); 
-            pictureBoxWhite.insert(pictureBox12); 
-            pictureBoxWhite.insert(pictureBox11); 
-            pictureBoxWhite.insert(pictureBox14); 
-            pictureBoxWhite.insert(pictureBox13); 
-            pictureBoxWhite.insert(pictureBox16); 
-            pictureBoxWhite.insert(pictureBox15); 
+            pictureBoxWhite.insert(pictureBox9);
+            pictureBoxWhite.insert(pictureBox12);
+            pictureBoxWhite.insert(pictureBox11);
+            pictureBoxWhite.insert(pictureBox14);
+            pictureBoxWhite.insert(pictureBox13);
+            pictureBoxWhite.insert(pictureBox16);
+            pictureBoxWhite.insert(pictureBox15);
 
             pictureBoxBlack.insert(pictureBox27);
             pictureBoxBlack.insert(pictureBox32);
@@ -1235,86 +1257,97 @@ namespace Chess {
             pictureBoxBlack.insert(pictureBox30);
         }
 
-		public void emptyPicturesBox() {
+        public void emptyPicturesBox()
+        {
 
-			Iterator it = pictureBoxWhite.getIterator();
-			PictureBox p;
+            Iterator it = pictureBoxWhite.getIterator();
+            PictureBox p;
 
-            while (it.MoveNext()) { 
-				p = it.Current as PictureBox;
-				p.Image = null;
-			}
-
-			it = pictureBoxBlack.getIterator();
-
-			while(it.MoveNext()) {
-				p=it.Current as PictureBox;
-				p.Image = null;
-			}
-		}
-
-		public void paintDeletedWhitePieces() {
-
-			int i = 0;
-			
-			//Clear images before painting
-
-			Iterator it = pictureBoxWhite.getIterator();
-
-            while (it.MoveNext()) {
-
-                (it.Current as PictureBox).Image = null;
+            while (it.MoveNext())
+            {
+                p = it.Current as PictureBox;
+                p.Image = null;
             }
 
-			foreach(Image im in myWhiteImages.Images) {
+            it = pictureBoxBlack.getIterator();
 
-				(pictureBoxWhite.getElement(i) as PictureBox).Image = im;
-				i++;
-			}
-		}
+            while (it.MoveNext())
+            {
+                p = it.Current as PictureBox;
+                p.Image = null;
+            }
+        }
 
-		public void paintDeletedBlackPieces() {
+        public void paintDeletedWhitePieces()
+        {
 
-			int i=0;
+            int i = 0;
 
             //Clear images before painting
 
-            Iterator it =pictureBoxBlack.getIterator();
+            Iterator it = pictureBoxWhite.getIterator();
 
-            while (it.MoveNext()) {
+            while (it.MoveNext())
+            {
 
                 (it.Current as PictureBox).Image = null;
             }
 
-			foreach(Image im in myBlackImages.Images) { 
+            foreach (Image im in myWhiteImages.Images)
+            {
 
-				(pictureBoxBlack.getElement(i) as PictureBox).Image = im;
-				i++;
-			}
-		}
-
-		//When a movement is undone, delete last image
-
-		public void deleteLastImage(ImageList images) {
-
-			if(images.Images.Count>0) {
-
-				images.Images.RemoveAt(images.Images.Count - 1);
+                (pictureBoxWhite.getElement(i) as PictureBox).Image = im;
+                i++;
             }
-		}
-		#endregion
+        }
 
-		private void menuItem3_Click(object sender, System.EventArgs e) {
+        public void paintDeletedBlackPieces()
+        {
 
+            int i = 0;
+
+            //Clear images before painting
+
+            Iterator it = pictureBoxBlack.getIterator();
+
+            while (it.MoveNext())
+            {
+
+                (it.Current as PictureBox).Image = null;
+            }
+
+            foreach (Image im in myBlackImages.Images)
+            {
+
+                (pictureBoxBlack.getElement(i) as PictureBox).Image = im;
+                i++;
+            }
+        }
+
+        //When a movement is undone, delete last image
+
+        public void deleteLastImage(ImageList images)
+        {
+
+            if (images.Images.Count > 0)
+            {
+
+                images.Images.RemoveAt(images.Images.Count - 1);
+            }
+        }
+        #endregion
+
+        private void menuItem3_Click(object sender, System.EventArgs e)
+        {
             Board.getInstance().setPath("Images/Classic");
             Board.getInstance().redrawBoard();
-		}
+        }
 
-		private void menuItem4_Click(object sender, System.EventArgs e) {
-
+        private void menuItem4_Click(object sender, System.EventArgs e)
+        {
             Board.getInstance().setPath("Images/Future");
             Board.getInstance().redrawBoard();
-		}
+        }
 
-	}
+    }
 }
